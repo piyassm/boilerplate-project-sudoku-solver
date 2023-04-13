@@ -247,6 +247,7 @@ suite("Functional Tests", () => {
           if (err) done(err);
           assert.equal(res.status, 200);
           assert.equal(res.body.error, "Invalid value");
+          chai.request(server).get("/");
           done();
         });
     });
