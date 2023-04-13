@@ -7,14 +7,14 @@ module.exports = function (app) {
     const puzzle = req.body.puzzle;
     const coord = req.body.coordinate;
     const value = req.body.value;
-    if (!puzzle)
+    if (!puzzle || !coord || !value)
       return res.json({ error: "Required field(s) missing" });
     // check if puzzle is valid
     const validate = solver.validate(puzzle);
     if (validate[0] === false) return res.json(validate[1]);
     // check if coordinate and value is valid
-    const coordRe = /^[a-iA-I]\d$/gi;
-    const valueRe = /^\d$/;
+    const coordRe = /^[a-iA-I][1-9]$/gi;
+    const valueRe = /^[1-9]$/;
     if (coordRe.test(coord) === false)
       return res.json({ error: "Invalid coordinate" });
     if (valueRe.test(value) === false)

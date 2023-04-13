@@ -223,8 +223,8 @@ suite("Functional Tests", () => {
         .post("/api/check")
         .send({
           puzzle: testStrings[4][0],
-          coordinate: "K1",
-          value: "3"
+          coordinate: "A0",
+          value: "7"
         })
         .end((err, res) => {
           if (err) done(err);
@@ -240,8 +240,8 @@ suite("Functional Tests", () => {
         .post("/api/check")
         .send({
           puzzle: testStrings[3][0],
-          coordinate: "I5",
-          value: "10"
+          coordinate: "A1",
+          value: "0"
         })
         .end((err, res) => {
           if (err) done(err);
